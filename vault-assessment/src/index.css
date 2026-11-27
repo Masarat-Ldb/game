@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  ZAT THEME — colors taken from zat.pro.
+  Every brand color lives here; change a value and the whole page follows.
+*/
+:root {
+  --zat-bg: #0d0c12;            /* zat.pro deep ink */
+  --zat-panel: #16141f;         /* zat.pro dark surface */
+  --zat-surface: #f9f8fc;       /* zat.pro mist (light band) */
+  --zat-ink: #171533;           /* zat.pro ink (text on light) */
+  --zat-fg: #f0eef6;            /* zat.pro text on dark */
+  --zat-muted: #a29eb0;         /* zat.pro secondary text */
+  --zat-heading-from: #6d6982;  /* gradient headline, top */
+  --zat-heading-to: #f0eef6;    /* gradient headline, bottom */
+  --zat-violet: #9168f0;        /* brand gradient stops */
+  --zat-blue: #5b8cf5;
+  --zat-mint: #22d3b4;
+  --zat-lilac: #b39bf6;
+  --zat-coral: #f45b78;
+  --zat-sun: #ffc929;
+  --zat-brand-gradient: linear-gradient(120deg, var(--zat-violet) 0%, var(--zat-blue) 52%, var(--zat-mint) 100%);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { background: var(--zat-bg); }
+body { font-family: 'Kanit', sans-serif; color: var(--zat-fg); -webkit-font-smoothing: antialiased; }
+
+.hero-heading {
+  background: linear-gradient(180deg, var(--zat-heading-from) 0%, var(--zat-heading-to) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-mono-ui { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+@keyframes zat-drift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes zat-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(3deg); } }
+@keyframes zat-spin { to { transform: rotate(360deg); } }
+
+:focus-visible { outline: 2px solid var(--zat-fg); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+input { font-family: inherit; }
+button { font-family: inherit; color: inherit; background: none; border: none; cursor: pointer; }
